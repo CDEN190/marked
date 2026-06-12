@@ -24,7 +24,7 @@ export class _Lexer<ParserOutput = string, RendererOutput = string> {
     // TokenList cannot be created in one go
     this.tokens = [] as unknown as TokensList;
     this.tokens.links = Object.create(null);
-    this.options = options || _defaults;
+    this.options = { ..._defaults, ...options };
     this.options.tokenizer = this.options.tokenizer || new _Tokenizer<ParserOutput, RendererOutput>();
     this.tokenizer = this.options.tokenizer;
     this.tokenizer.options = this.options;
